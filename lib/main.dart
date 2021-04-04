@@ -4,9 +4,10 @@ import 'dart:ui';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  Widget roller(double heightContainer, double widthContainer) {
+  Widget roller(
+      double heightContainer, double widthContainer, Color rollerColor) {
     return Container(
-      color: Colors.grey,
+      color: rollerColor,
       height: heightContainer,
       width: widthContainer,
     );
@@ -38,7 +39,6 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -63,119 +63,107 @@ class MyApp extends StatelessWidget {
           actions: [Icon(Icons.more_vert)],
         ),
         body: SafeArea(
-          child: Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Expanded(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        width: 10,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Color(0xffEB2123),
                       ),
-                      Expanded(
-                        child: Container(
-                          height: 30,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: Colors.red,
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Standard',
-                            ),
-                          ),
+                      child: Center(
+                        child: Text(
+                          'Standard',
                         ),
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      topButton('interview'),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      topButton('Speech-to-text'),
-                      SizedBox(
-                        width: 10,
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-                Row(
+                  SizedBox(
+                    width: 10,
+                  ),
+                  topButton('interview'),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  topButton('Speech-to-text'),
+                  SizedBox(
+                    width: 10,
+                  ),
+                ],
+              ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     timer(0),
-                    SizedBox(
-                      width: 33,
-                    ),
                     timer(2),
-                    SizedBox(
-                      width: 34,
-                    ),
                     timer(4),
-                    SizedBox(
-                      width: 34,
-                    ),
                     timer(6),
-                    SizedBox(
-                      width: 34,
-                    ),
                     timer(8),
+                    SizedBox(
+                      width: 18,
+                    ),
                   ],
                 ),
-                Container(
-                  height: 200,
-                  width: double.infinity,
-                  color: Color(0xff2d2a2a),
-                  child: Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        roller(15, 1),
-                        roller(7, 1),
-                        roller(7, 1),
-                        roller(7, 1),
-                        roller(15, 1),
-                        roller(7, 1),
-                        roller(7, 1),
-                        roller(7, 1),
-                        roller(15, 1),
-                        roller(7, 1),
-                        roller(7, 1),
-                        roller(7, 1),
-                        roller(15, 1),
-                        roller(7, 1),
-                        roller(15, 1),
-                        roller(7, 1),
-                        roller(15, 1),
-                        roller(7, 1),
-                        roller(7, 1),
-                        roller(7, 1),
-                      ],
-                    ),
+              ),
+              Container(
+                height: 230,
+                width: double.infinity,
+                color: Color(0xff2d2a2a),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    roller(20, 1, Colors.white),
+                    roller(7, 1, Colors.grey),
+                    roller(7, 1, Colors.grey),
+                    roller(7, 1, Colors.grey),
+                    roller(20, 1, Colors.white),
+                    roller(7, 1, Colors.grey),
+                    roller(7, 1, Colors.grey),
+                    roller(7, 1, Colors.grey),
+                    roller(20, 1, Colors.white),
+                    roller(7, 1, Colors.grey),
+                    roller(7, 1, Colors.grey),
+                    roller(7, 1, Colors.grey),
+                    roller(20, 1, Colors.white),
+                    roller(7, 1, Colors.grey),
+                    roller(7, 1, Colors.grey),
+                    roller(7, 1, Colors.grey),
+                    roller(20, 1, Colors.white),
+                    roller(7, 1, Colors.grey),
+                    roller(7, 1, Colors.grey),
+                    roller(7, 1, Colors.grey),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 150,
+              ),
+              Expanded(
+                child: FloatingActionButton(
+                  backgroundColor: Colors.white,
+                  onPressed: () {},
+                  child: Icon(
+                    Icons.circle,
+                    color: Color(0xffEB2123),
+                    size: 50,
                   ),
                 ),
-                SizedBox(
-                  height: 100,
-                ),
-                Expanded(
-                  child: FloatingActionButton(
-                    backgroundColor: Colors.white,
-                    onPressed: () {},
-                    child: Icon(
-                      Icons.circle,
-                      color: Colors.red,
-                      size: 50,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
